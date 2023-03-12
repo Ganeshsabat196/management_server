@@ -13,7 +13,7 @@ app.use(cors({
 const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
 DB = process.env.DB;
-PORT = process.env.PORT;
+PORT = process.env.PORT || 5000;
 
 // using body-parser
 app.use(bodyParser.json({ extended: true }));
