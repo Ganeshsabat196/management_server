@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import cors from 'cors';
 import bodyParser from "body-parser";
 
-import Conn from "./db/conn.js";
+import Conn from "./db/Conn.js";
 import route from "./routes/Route.js";
 
 import path from "path";  // use this for image upload
