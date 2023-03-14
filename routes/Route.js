@@ -46,9 +46,11 @@ route.post('/studentstest/deletetest', deleteTest);
 
 // more
 route.get('/more/getstandards', getStandards);
+route.get('/more/getdistinctstandards', getDistinctStandards);
 route.post('/more/addstandard', addStandard);
 
 route.get('/more/getsections', getSections);
+route.get('/more/getdistinctsections', getDistinctSections);
 route.post('/more/addsection', addSection);
 
 export default route;
