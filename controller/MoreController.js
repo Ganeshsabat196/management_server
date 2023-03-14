@@ -110,4 +110,22 @@ const getSections = async (req, res) => {
   }
 };
 
-export { getStandards, addStandard, addSection, getSections };
+const getDistinctSections = async (req, res) => {
+  try {
+    const allSections = await Section.find({});
+    return res.status(200).json(allSections);
+  } catch (error) {
+    return res.status(500).json(error.message);
+  }
+}; 
+
+const getDistinctStandards = async (req, res) => {
+  try {
+    const allStandard = await Standard.find({}).distinct("standard");
+    return res.status(200).json(allStandard);
+  } catch (error) {
+    return res.status(500).json(error.message);
+  }
+};
+
+export { getStandards, addStandard, addSection, getSections ,getDistinctSections,getDistinctStandards};
