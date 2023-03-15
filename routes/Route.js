@@ -4,7 +4,7 @@ import express from "express";
 import { getStudents, getStudent, getFilteredStudent, addStudent, editStudent, deleteStudent } from "../controller/StudentsController.js";
 import { getStudentsFees, getStudentFees, addStudentsFees, editInstallment, deleteInstallment } from "../controller/StudentFeesController.js";
 import { addStudentsTest, getStudentsTest, getStudentTest, editStudentTest, deleteTest, getFilteredTests } from "../controller/StudentTestController.js";
-import { getStandards, addStandard, addSection, getSections } from "../controller/MoreController.js";
+import { getStandards,getDistinctStandards,getDistinctSections, addStandard, addSection, getSections } from "../controller/MoreController.js";
 
 // middleware
 import { storage,upload } from "../middleware/StudentMiddleware.js";
@@ -20,7 +20,7 @@ route.post('/student/editstudent', editStudent);
 route.post('/student/deletestudent', deleteStudent);
 
 // attendence
-// route.post('/attendence/getattendence', getAttendence);
+route.get('/attendence/getattendence', getAttendence);
 // route.post('/attendence/addattendence', addAttendence);
 // route.post('/attendence/editattendence', editAttendence);
 // route.post('/attendence/deleteattendence', deleteAttendence);
@@ -46,9 +46,11 @@ route.post('/studentstest/deletetest', deleteTest);
 
 // more
 route.get('/more/getstandards', getStandards);
+route.get('/more/getdistinctstandards', getDistinctStandards);
 route.post('/more/addstandard', addStandard);
 
 route.get('/more/getsections', getSections);
+route.get('/more/getdistinctsections', getDistinctSections);
 route.post('/more/addsection', addSection);
 
 export default route;
