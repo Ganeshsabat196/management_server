@@ -128,4 +128,26 @@ const getDistinctStandards = async (req, res) => {
   }
 };
 
+<<<<<<< HEAD
 export { getStandards, addStandard, addSection, getSections,getDistinctStandards ,getDistinctSections};
+=======
+const getDistinctSections = async (req, res) => {
+  try {
+    const allSections = await Section.find({});
+    return res.status(200).json(allSections);
+  } catch (error) {
+    return res.status(500).json(error.message);
+  }
+}; 
+
+const getDistinctStandards = async (req, res) => {
+  try {
+    const allStandard = await Standard.find({}).distinct("standard");
+    return res.status(200).json(allStandard);
+  } catch (error) {
+    return res.status(500).json(error.message);
+  }
+};
+
+export { getStandards, addStandard, addSection, getSections ,getDistinctSections,getDistinctStandards};
+>>>>>>> 6833fc3c99a7d257ea3b6f4bc428d994620002ec
