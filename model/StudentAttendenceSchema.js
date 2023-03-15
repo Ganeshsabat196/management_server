@@ -1,23 +1,51 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose'
 
 const StudentAttendenceSchema =  new mongoose.Schema({
-    studentid:{
+    year:{
         type: String,
         required: true
     },
-    attendences: [
+    class:{
+        type: String,
+        required: true
+    },
+    batch:{
+        type: String,
+        required: true
+    },
+    students: [
         {
-            date:{
+            studentid:{
                 type: String,
                 required: true
             },
-            status:{
+            Name:{
                 type: String,
                 required: true
+            },
+            month: {
+                
+                    jan:{
+                        attendences:[
+                            {
+                                date:{
+                                    type:Number,
+                                    required: true
+                                },
+                                status:{
+                                    type:Boolean,
+                                    required: true
+                                }
+
+                            }
+                        ]
+                    }            
+               
+
             }
         }
     ]
 })
 
 const StudentAttendence = mongoose.model('StudentAttendence',StudentAttendenceSchema)
-module.exports = StudentAttendence;
+export default StudentAttendence;

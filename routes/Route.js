@@ -8,9 +8,9 @@ import { getStandards,getDistinctStandards,getDistinctSections, addStandard, add
 
 // middleware
 import { storage,upload } from "../middleware/StudentMiddleware.js";
+import { getAttendence } from "../controller/StudentAttendenceController.js";
 
 const route = express.Router();
-
 // students
 route.post('/student/getstudent', getStudent); // single student based on id
 route.get('/student/getstudents', getStudents); // all students
