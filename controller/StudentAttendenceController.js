@@ -16,21 +16,23 @@ const addAttendence = async (req, res) => {
 
   try {
 
-    // console.log("edit installment", req.body.filter);
-    // console.log("edit installment", req.body.upattendence);
+    console.log("edit installment", req.body.filter);
+    console.log("edit installment", req.body.post);
+    console.log("edit installment", req.body.upattendence);
     var attendenceSheet
     console.log()
     var query = "students.$.month." + req.body.filter[2] + ".attendences." + parseInt(req.body.filter[4] - 1) + ".status";
 
-    req.body.upattendence.map(async (resp) => {
-      // console.log(query)
+    req.body.upattendence.map(async (resp,j) => {
+      // console.log("this is resp",resp)
+      // console.log("value of i ",j);
       attendenceSheet = await StudentAttendence.updateOne(
         { "students.studentid": resp.studentid, class: req.body.filter[0], year: req.body.filter[3], batch: req.body.filter[1] },
 
 
         {
           $set: {
-            [query]: req.body.post[0].status
+            [query]: req.body.post[j].status
 
           }
         }
@@ -38,7 +40,7 @@ const addAttendence = async (req, res) => {
       i++;
     })
 
-
+    console.log(attendenceSheet);
     return res.status(200).json(attendenceSheet);
   } catch (error) {
     console.log(error.message);

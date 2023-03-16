@@ -8,7 +8,7 @@ import { getStandards,getDistinctStandards,getDistinctSections, addStandard, add
 
 // middleware
 import { storage,upload } from "../middleware/StudentMiddleware.js";
-import { getAttendence } from "../controller/StudentAttendenceController.js";
+import { getAttendence,addAttendence } from "../controller/StudentAttendenceController.js";
 
 const route = express.Router();
 // students
@@ -21,7 +21,7 @@ route.post('/student/deletestudent', deleteStudent);
 
 // attendence
 route.get('/attendence/getattendence', getAttendence);
-// route.post('/attendence/addattendence', addAttendence);
+route.post('/attendence/addattendence', addAttendence);
 // route.post('/attendence/editattendence', editAttendence);
 // route.post('/attendence/deleteattendence', deleteAttendence);
 
