@@ -33,7 +33,7 @@ const StudentAttendenceSchema =  new mongoose.Schema({
                                     required: true
                                 },
                                 status:{
-                                    type:Boolean,
+                                    type:[Boolean|String]   ,
                                     required: true
                                 }
 
